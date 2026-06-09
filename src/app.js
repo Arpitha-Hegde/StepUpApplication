@@ -3,8 +3,9 @@
   var employees = [];
   var currentEmployee = null;
 
-  var authPanel = document.getElementById('auth-panel');
+  var authPage = document.getElementById('auth-page');
   var dashboard = document.getElementById('dashboard');
+  var profileAvatar = document.getElementById('profile-avatar');
   var form = document.getElementById('auth-form');
   var formDescription = document.getElementById('form-description');
   var firstName = document.getElementById('firstName');
@@ -68,16 +69,18 @@
 
   function renderDashboard() {
     if (!currentEmployee) {
-      authPanel.className = 'auth-box';
-      dashboard.className = 'auth-box hidden';
+      authPage.className = 'page';
+      dashboard.className = 'app hidden';
       renderAuth();
       return;
     }
 
-    authPanel.className = 'auth-box hidden';
-    dashboard.className = 'auth-box';
+    authPage.className = 'page hidden';
+    dashboard.className = 'app';
     profileName.textContent = currentEmployee.firstName + ' ' + currentEmployee.lastName;
     profileEmail.textContent = currentEmployee.email;
+    profileAvatar.textContent =
+      currentEmployee.firstName.charAt(0) + currentEmployee.lastName.charAt(0);
     passwordForm.reset();
     setPasswordMessage('');
   }

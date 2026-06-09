@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
-    <main class="page">
+    <main class="page" id="auth-page">
       <section class="auth-box" id="auth-panel" aria-labelledby="stepup-title">
         <div class="logo" aria-label="StepUp">
           <span>S</span>
@@ -42,42 +42,54 @@
           Already have an account? Login
         </button>
       </section>
+    </main>
 
-      <section class="auth-box hidden" id="dashboard" aria-labelledby="profile-title">
+    <div class="app hidden" id="dashboard" aria-labelledby="profile-title">
+      <header class="app-header">
         <div class="logo" aria-label="StepUp">
           <span>S</span>
           <h1>StepUp</h1>
         </div>
+        <button class="link-button header-action" type="button" id="logout-button">Logout</button>
+      </header>
 
+      <main class="app-main">
         <h2 id="profile-title">Your Profile</h2>
 
-        <dl class="profile-details">
-          <dt>Name</dt>
-          <dd id="profile-name"></dd>
-          <dt>Email</dt>
-          <dd id="profile-email"></dd>
-        </dl>
+        <section class="card profile-card">
+          <div class="avatar" id="profile-avatar" aria-hidden="true"></div>
+          <div class="profile-identity">
+            <p class="profile-name" id="profile-name"></p>
+            <p class="profile-email" id="profile-email"></p>
+          </div>
+        </section>
 
-        <h3 class="profile-subtitle">Update Password</h3>
+        <section class="card">
+          <h3 class="card-title">Update Password</h3>
 
-        <form id="password-form" novalidate>
-          <label for="currentPassword">Current Password</label>
-          <input id="currentPassword" name="currentPassword" type="password" placeholder="Enter your current password" />
+          <form id="password-form" class="card-form" novalidate>
+            <div class="form-row">
+              <label for="currentPassword">Current Password</label>
+              <input id="currentPassword" name="currentPassword" type="password" placeholder="Enter your current password" />
+            </div>
 
-          <label for="newPassword">New Password</label>
-          <input id="newPassword" name="newPassword" type="password" placeholder="Enter a new password" />
+            <div class="form-row">
+              <label for="newPassword">New Password</label>
+              <input id="newPassword" name="newPassword" type="password" placeholder="Enter a new password" />
+            </div>
 
-          <label for="confirmPassword">Confirm New Password</label>
-          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Re-enter the new password" />
+            <div class="form-row">
+              <label for="confirmPassword">Confirm New Password</label>
+              <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Re-enter the new password" />
+            </div>
 
-          <p class="message" id="password-message" role="status" aria-live="polite"></p>
+            <p class="message" id="password-message" role="status" aria-live="polite"></p>
 
-          <button type="submit" id="update-password-button">Update Password</button>
-        </form>
-
-        <button class="link-button" type="button" id="logout-button">Logout</button>
-      </section>
-    </main>
+            <button type="submit" id="update-password-button">Update Password</button>
+          </form>
+        </section>
+      </main>
+    </div>
 
     <script src="src/app.js" defer></script>
   </body>
